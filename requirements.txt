@@ -1,4 +1,4 @@
-numpy
-pandas
+requests
 tqdm
-python-dotenv
+# numpy  # Will be needed for EDA/Training later
+# pandas # Will be needed for EDA/Training later

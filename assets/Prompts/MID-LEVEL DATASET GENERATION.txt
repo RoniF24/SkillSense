@@ -1,0 +1,52 @@
+You are an expert Data Scientist and NLP engineer.
+Your task: generate synthetic training samples for
+"Explicit–Implicit Skill Extraction".
+
+SENIORITY PROFILE FOR THIS PROMPT:
+----------------------------------
+Generate resume text suitable for a **MID-LEVEL** engineer:
+- practical real-world experience
+- moderate autonomy
+- involvement in feature development, testing, integration
+- some exposure to system design, cross-team work
+- more technical detail than junior, but not managerial
+
+DATASET GOAL:
+-------------
+Predict whether each canonical skill is:
+- EXPLICIT = 1.0
+- IMPLICIT = 0.5
+- NONE     = 0.0
+
+GLOBAL SKILL LIST:
+------------------
+Use ONLY the skills and aliases in:
+[PASTE_SKILLS_DICT_HERE]
+
+SAMPLE GENERATION RULES:
+------------------------
+For each sample:
+1) Choose 3–6 distinct skills randomly.
+2) Assign each a numeric value.
+3) Generate a resume-style paragraph (5–6 sentences):
+   - EXPLICIT (1.0): mention skill name or alias.
+   - IMPLICIT (0.5): no alias appears; text must imply the skill clearly.
+   - NONE (0.0): no evidence.
+4) Writing: mid-level detail, moderate complexity, real feature ownership.
+
+OUTPUT FORMAT (JSONL):
+----------------------
+When I request N samples:
+- Output exactly N JSON objects, each on its own line.
+- No commentary before or after.
+
+FORMAT:
+{
+  "skills": {
+    "<SkillName1>": 1.0,
+    "<SkillName2>": 0.5,
+    "<SkillName3>": 0.0
+  },
+  "resume_chunk_text": "5–6 sentences appropriate to mid-level engineering."
+}
+Ensure JSON is valid and aliases for implicit skills never appear.

@@ -1,0 +1,54 @@
+You are an expert Data Scientist and NLP engineer.
+Your task is to generate synthetic training samples for the academic project
+"Explicit–Implicit Skill Extraction".
+
+SENIORITY PROFILE FOR THIS PROMPT:
+----------------------------------
+Generate resume-style text that fits a **JUNIOR** engineer:
+- limited experience
+- small projects or internships
+- simple responsibilities, fewer buzzwords
+- shorter, more concrete descriptions
+- avoid architectural or leadership terms
+
+DATASET OBJECTIVE:
+------------------
+We want a model that receives a short resume-style job description and predicts,
+for a CLOSED SET of skills, whether each skill appears as:
+- EXPLICIT = 1.0 (skill name or alias appears)
+- IMPLICIT = 0.5 (skill not named, but responsibilities strongly imply it)
+- NONE     = 0.0 (no evidence)
+
+GLOBAL SKILL LIST:
+------------------
+Use ONLY the canonical skills and aliases from:
+[PASTE_SKILLS_DICT_HERE]
+
+SAMPLE GENERATION RULES:
+------------------------
+For each sample you generate:
+1) Randomly choose 3–6 DISTINCT skills from the global skill list.
+2) Assign a value to each: 1.0, 0.5, or 0.0.
+3) Produce resume text (4–5 sentences) matching the labels:
+   - If EXPLICIT (1.0): MUST include the skill name or an alias.
+   - If IMPLICIT (0.5): MUST NOT include the skill name OR any alias,
+     but MUST strongly imply usage of that skill.
+   - If NONE (0.0): Provide no evidence for it.
+4) Writing style: junior-level, straightforward and simple.
+
+OUTPUT FORMAT (JSONL):
+----------------------
+When I ask for N samples:
+- Output exactly N JSON objects, one per line.
+- No additional text or comments.
+
+FORMAT EXAMPLE:
+{
+  "skills": {
+    "<SkillName1>": 1.0,
+    "<SkillName2>": 0.5,
+    "<SkillName3>": 0.0
+  },
+  "resume_chunk_text": "4–5 sentences matching the definitions."
+}
+Ensure all JSON objects are valid.

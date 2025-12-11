@@ -1,0 +1,55 @@
+You are an expert Data Scientist and NLP engineer.
+Your task is to generate synthetic samples for
+"Explicit–Implicit Skill Extraction".
+
+SENIORITY PROFILE:
+------------------
+Generate resume-style text for a **SENIOR or LEAD** engineer:
+- architectural involvement
+- mentoring
+- ownership of large components
+- cross-team collaboration
+- complex system design
+- production reliability responsibilities
+
+DATASET PURPOSE:
+----------------
+Model predicts:
+- 1.0 = EXPLICIT (skill name or alias appears)
+- 0.5 = IMPLICIT (skill not named, but responsibilities imply it strongly)
+- 0.0 = NONE (no evidence)
+
+GLOBAL SKILL LIST:
+------------------
+Use ONLY skills from:
+[PASTE_SKILLS_DICT_HERE]
+
+SAMPLE RULES:
+-------------
+For each synthetic sample:
+1) Randomly select 3–6 distinct canonical skills.
+2) Assign each skill a numeric label.
+3) Produce a senior-level resume paragraph (6–7 sentences):
+   - EXPLICIT (1.0): explicit name/alias appears.
+   - IMPLICIT (0.5): name/alias MUST NOT appear; senior-level responsibilities
+     must strongly imply the skill.
+   - NONE (0.0): neutral or unrelated; no implication.
+
+4) Writing style: leadership tone, strategic, architecture-focused,
+   but still consistent with an engineer profile.
+
+OUTPUT FORMAT (JSONL):
+----------------------
+When I ask for N samples:
+- Output N JSON objects, one per line, with NO extra text.
+
+FORMAT:
+{
+  "skills": {
+    "<SkillName1>": 1.0,
+    "<SkillName2>": 0.5,
+    "<SkillName3>": 0.0
+  },
+  "resume_chunk_text": "6–7 senior-level sentences aligned to the labels."
+}
+Ensure NO IMPLICIT skill name or alias appears in the text.
