@@ -1,0 +1,126 @@
+You are generating ONE resume-style paragraph (4–6 sentences) for an NLP dataset: "Explicit–Implicit Skill Extraction".
+
+Context:
+- role_family: {role_family}
+- seniority: {seniority} (Intern / Junior / Mid / Senior / Lead / Manager)
+- responsibility_depth: {responsibility_depth} (IC / TechLead / PeopleManager)
+- domain: {domain}
+
+skills_info:
+[PASTE_SKILLS_DICT_HERE]
+
+STRICT RULES:
+1) Output ONLY the paragraph (plain text). No JSON. No markdown. No headings. No “Here is…”.
+STYLE RULES (VERY IMPORTANT):
+- Do NOT start sentences with: "I have extensive experience", "I have gained experience", "In addition", "Furthermore".
+- Write like a real resume: concrete actions + context, not self-descriptions.
+- Avoid repetitive phrasing (do not reuse the same structure twice).
+- Each skill should be mentioned/implied ONCE (do not repeat the same explicit skill multiple times).
+- Do NOT include broken phrases or placeholders (e.g., "with and .", "and for", duplicated words like "pipelines ... pipelines").
+
+
+2) Use ONLY the skills in skills_info. Do NOT add any new tools or skills.
+2.1) Do NOT include responsibilities or descriptions that clearly indicate skills
+     that are NOT listed in skills_info. Such responsibilities must be omitted.
+
+3) If label is 1.0 (EXPLICIT): mention the canonical skill name OR one alias verbatim.
+
+4) If label is 0.5 (IMPLICIT): DO NOT mention the canonical name NOR any alias verbatim;
+   imply the skill via responsibilities only.
+
+4.1) HARD CONSTRAINT:
+- Every skill in skills_info MUST be reflected in the paragraph.
+- If any skill is missing (explicitly for 1.0, or clearly implied for 0.5),
+  the output is INVALID and must be regenerated.
+- Do NOT use meta language (e.g., "not explicitly mentioned", "implies", "implicitly").
+- Do NOT use generic placeholders such as:
+  "a tool", "a service", "a platform", "a CI/CD tool", "a cloud service", "a production tool".
+
+IMPLICIT SKILL GUIDANCE (CRITICAL):
+When a skill has label 0.5, you MUST imply it using concrete, distinctive responsibilities
+that would strongly suggest the skill to a domain expert.
+
+Implicit skill definition (0.5):
+A skill is labeled as implicit (0.5) if the canonical name and all aliases
+do NOT appear in the text, even if the responsibilities strongly and clearly
+indicate the skill to a domain expert.
+
+The implication must be specific enough that a professional could infer the skill
+with high confidence.
+
+Examples of strong implication patterns (ONLY for skills that appear in skills_info with label 0.5 — otherwise AVOID these phrases entirely):
+- You must use ONE concise implication per implicit skill (do not over-explain).
+- For each implicit skill, choose ONE pattern and DO NOT copy the same phrasing across samples.
+
+- GitOps (choose ONE): 
+  * declarative config synced from a repo to environments
+  * desired-state reconciliation with automated sync
+  * version-controlled environment configs with drift correction
+
+- CI/CD (choose ONE, and use the word "pipeline" at most ONCE in the whole paragraph):
+  * automated build + test on merges with staged rollout
+  * gated releases with automated checks before deploy
+  * release automation with rollback plan mentioned briefly (no details)
+
+- MLflow / MLOps (choose ONE):
+  * experiment tracking + model registry + promotion between stages
+  * reproducible training runs with versioned artifacts and staged deployment
+  * automated validation checks before moving models to production
+
+- Star Schema (choose ONE):
+  * fact/dimension modeling for analytics queries
+  * dimensional modeling to speed up reporting
+  * reshaping data into facts and dimensions for BI
+
+- Cloud Networking / Load Balancing (choose ONE):
+  * subnet routing / security rules for service connectivity
+  * request distribution with health checks and failover routing
+  * traffic routing rules controlling paths between services
+
+- Kafka (choose ONE):
+  * producers/consumers with topic partitioning
+  * event streams with throughput/ordering constraints
+  * message ingestion with partitions and consumer groups
+
+- NLP (choose ONE):
+  * tokenization/normalization + lightweight text classification
+  * preparing labeled text data + evaluating precision/recall
+  * building simple text processing rules and validating on samples
+
+IMPORTANT (STRICT):
+- If CI/CD is NOT in skills_info: do NOT mention ANY of the following terms or ideas:
+  pipelines, pull requests, merges, build-and-deploy, release gates, deployment gates,
+  rollbacks, continuous integration, continuous deployment, automated test stages.
+- If a CI/CD tool (e.g., GitHub Actions / Azure DevOps / Jenkins / GitLab CI) appears in skills_info,
+  CI/CD-like wording is allowed ONLY if CI/CD also appears in skills_info (0.5 or 1.0).
+
+5) Realism by seniority:
+   - Intern/Junior: small/medium tasks, no leading architecture, no mentoring or leading a team.
+   - Mid: own features/services, occasional cross-team collaboration.
+   - Senior/Lead: system design, reliability/performance, mentoring allowed.
+   - Manager: people/process ownership and delivery; keep technical mentions realistic.
+
+6) Avoid invalid associations:
+   - Selenium is for UI automation testing, NOT for backups or failover.
+   - Backups and failover are described as managed database operations
+     or infrastructure configuration.
+
+7) NEVER explain or comment on skills.
+   - Do NOT use meta language such as:
+     "implicitly suggests", "this implies", "without explicitly mentioning",
+     "although I did not mention", "suggests expertise".
+   - The paragraph must read like a real resume, not an explanation.
+   - If you explain why something implies a skill, the output is INVALID.
+
+8) Responsibility depth enforcement:
+   - If responsibility_depth = IC:
+     * DO NOT mention leading teams, mentoring, managing people, or overseeing others.
+     * Allowed: owning components, implementing features, collaborating with other teams.
+     * Any leadership or management wording makes the output INVALID.
+   - If responsibility_depth = TechLead or PeopleManager:
+     * Leadership and mentoring are allowed, but must stay realistic to seniority.
+
+9) No metrics:
+- Do NOT include numbers, percentages, or hard performance claims (e.g., "30%", "2x", "millions of users").
+
+Now write the paragraph.
