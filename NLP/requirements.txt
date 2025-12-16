@@ -1,4 +1,0 @@
-requests
-tqdm
-# numpy  # Will be needed for EDA/Training later
-# pandas # Will be needed for EDA/Training later
