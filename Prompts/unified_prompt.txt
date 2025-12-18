@@ -10,46 +10,32 @@ Context:
 - responsibility_depth: {responsibility_depth}
 - domain: {domain}
 
-Skills specification (JSON dict: skill -> label):
+Skill specification (JSON dict: skill -> info):
 [PASTE_SKILLS_DICT_HERE]
 
-Output format:
-- ONE paragraph, plain text only
-- 4–6 sentences
-- Each sentence describes ONE concrete action or responsibility
-- No bullet points, no lists, no headings
-- Do NOT include quotes, JSON, or any prefacing text
+Each skill has:
+- target_label: 1.0 (Explicit) or 0.5 (Implicit)
+- aliases: list of acceptable explicit mentions (for 1.0 skills)
+- required_evidence: phrases that MUST appear for 0.5 skills
+- banned_terms: terms that MUST NOT appear for 0.5 skills (skill name + aliases)
 
-Skill labeling rules:
-- For each skill with label 1.0 (EXPLICIT):
-  * Mention the canonical skill name OR exactly one alias verbatim
-  * Mention it EXACTLY ONCE in the entire paragraph
-  * Embed it naturally inside a work sentence
-  * Do not repeat it via abbreviations, parentheses, or variations
+Rules:
+1) Output ONLY ONE resume-style paragraph of 4–6 sentences.
+2) Do NOT mention any tool/skill that is not in the provided JSON dict.
+3) For each skill with target_label = 1.0 (Explicit):
+   - Mention the canonical skill name OR one of its aliases at least once.
+   - It may appear multiple times (repeats are allowed).
+4) For each skill with target_label = 0.5 (Implicit):
+   - DO NOT use any banned_terms (no direct name/alias mentions).
+   - You MUST include at least one phrase from required_evidence naturally in the paragraph.
+   - Keep the evidence subtle (describe behavior/activities, not the skill name).
 
-- For each skill with label 0.5 (IMPLICIT):
-  * Do NOT mention the skill name, any alias, or near-synonyms
-  * Imply it only through a specific, realistic responsibility
-  * Use one clear implication per implicit skill
-
-Hard constraints:
-- Use ONLY the skills provided (plus generic words like “server”, “logs”, “database” are ok)
-- Do NOT introduce any tools/technologies/frameworks not listed
-- Do NOT name companies, products, or proprietary systems unless explicitly in the skills list
-
-Writing style:
-- Write like a real {seniority} resume
-- Use direct, action-first sentences (e.g., “Implemented…”, “Built…”, “Analyzed…”)
-- Avoid marketing language and buzzwords
-- Avoid repeating the same idea across sentences
+Style constraints:
+- Natural resume tone (past tense).
+- No bullet points, no JSON output, no headings.
+- Avoid marketing language and buzzwords.
 - Avoid these phrases (do not use them):
   “production-grade”, “world-class”, “cutting-edge”, “highly scalable”, “synergy”,
-  “worked on”, “responsible for”, “in order to”, “various tasks”, “cross-functional”
-- Prefer measurable outcomes if possible WITHOUT adding new tools (e.g., “reduced latency”, “improved uptime”)
-
-Silent final check (do not print the check):
-- Every 1.0 skill appears exactly once
-- No 0.5 skill name/alias/near-synonym appears
-- No unlisted tools appear
+  “worked on”, “responsible for”, “in order to”, “various tasks”, “cross-functional”.
 
 Now write the paragraph.
