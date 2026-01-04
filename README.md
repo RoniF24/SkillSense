@@ -71,24 +71,23 @@ cd SkillSight
 setup_env.bat
 ```
 
-### 2. Download Models from Hugging Face
+This will:
+- Create virtual environment
+- Install dependencies
+- Download models from Hugging Face (~2GB)
 
-```bash
-python download_models.py
-```
-
-This downloads models from:
-- https://huggingface.co/YonatanEl/skillsight-deberta-v3
-- https://huggingface.co/YonatanEl/skillsight-roberta-base
-- https://huggingface.co/YonatanEl/skillsight-deberta-v3-onepass
-
-### 3. Analyze Text
+### 2. Analyze Text
 
 ```bash
 python analyze_resume.py --text "I have 5 years of experience with Python and Django" --model deberta
 ```
 
 For more details, see [MODELS_GUIDE.md](MODELS_GUIDE.md).
+
+**Models hosted at:**
+- https://huggingface.co/YonatanEl/skillsight-deberta-v3
+- https://huggingface.co/YonatanEl/skillsight-roberta-base
+- https://huggingface.co/YonatanEl/skillsight-deberta-v3-onepass
 
 ---
 

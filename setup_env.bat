@@ -44,6 +44,13 @@ if errorlevel 1 (
   exit /b 1
 )
 
+REM ---- Download models from Hugging Face ----
+echo [INFO] Downloading models from Hugging Face...
+python download_models.py
+if errorlevel 1 (
+  echo [WARN] Model download failed. You can retry later with: python download_models.py
+)
+
 echo.
 echo [OK] Environment ready!
 echo [OK] VENV is active.
