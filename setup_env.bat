@@ -46,9 +46,9 @@ if errorlevel 1 (
 
 REM ---- Download models from Hugging Face ----
 echo [INFO] Downloading models from Hugging Face...
-python download_models.py
+python src\models\download_models.py
 if errorlevel 1 (
-  echo [WARN] Model download failed. You can retry later with: python download_models.py
+  echo [WARN] Model download failed. You can retry later with: python src\models\download_models.py
 )
 
 echo.
@@ -56,5 +56,5 @@ echo [OK] Environment ready!
 echo [OK] VENV is active.
 echo.
 echo To run skill extraction:
-echo   python analyze_resume.py --text "your text" --model deberta
+echo   python src\models\analyze_resume.py --text "your text" --model deberta
 echo.

@@ -1,0 +1,2 @@
+exp,base,epochs,lr,batch,eval_batch,max_len,best_val_macro_f1,best_val_accuracy,device
+microsoft__deberta-v3-base__onepass,microsoft/deberta-v3-base,3,2e-05,8,16,384,0.4829974026958545,0.9703501400560224,cuda

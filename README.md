@@ -79,7 +79,7 @@ This will:
 ### 2. Analyze Text
 
 ```bash
-python analyze_resume.py --text "I have 5 years of experience with Python and Django" --model deberta
+python src/models/analyze_resume.py --text "I have 5 years of experience with Python and Django" --model deberta
 ```
 
 For more details, see [MODELS_GUIDE.md](MODELS_GUIDE.md).

@@ -1,0 +1,3 @@
+model_name,output_dir,best_val_macro_f1,epochs,lr,batch_size,max_length,cuda,gpu
+roberta-base,C:\NLP\SkillSight\models\roberta_base,0.9545677158288551,3,2e-05,8,384,True,NVIDIA GeForce RTX 3060
+microsoft/deberta-v3-base,C:\NLP\SkillSight\models\deberta_v3_base,0.9707450703018656,3,2e-05,8,384,True,NVIDIA GeForce RTX 3060
