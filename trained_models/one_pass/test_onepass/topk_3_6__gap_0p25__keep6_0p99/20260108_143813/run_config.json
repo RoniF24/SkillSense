@@ -1,0 +1,23 @@
+{
+  "repo_root": "C:\\Users\\ronif\\Desktop\\try NLP",
+  "model_dir": "trained_models\\one_pass\\train_seed42_epoch3_cw\\final",
+  "model_name": "roberta-base",
+  "data_jsonl": "C:\\Users\\ronif\\Desktop\\try NLP\\data\\splits_v1\\test.jsonl",
+  "skills_file": "C:\\Users\\ronif\\Desktop\\try NLP\\data\\splits_v1\\skills_used.txt",
+  "device": "cuda",
+  "max_length": 256,
+  "k_min": 3,
+  "k_max": 6,
+  "use_gap_rule": true,
+  "gap_ratio": 0.25,
+  "prefilter_threshold": null,
+  "keep6_min_score": 0.99,
+  "split_name": "test",
+  "out_dir": "C:\\Users\\ronif\\Desktop\\try NLP\\trained_models\\one_pass\\test_onepass\\topk_3_6__gap_0p25__keep6_0p99\\20260108_143813",
+  "outputs": {
+    "predictions_full_jsonl": "C:\\Users\\ronif\\Desktop\\try NLP\\trained_models\\one_pass\\test_onepass\\topk_3_6__gap_0p25__keep6_0p99\\20260108_143813\\predictions_test.jsonl",
+    "predictions_test_clean_jsonl": "C:\\Users\\ronif\\Desktop\\try NLP\\trained_models\\one_pass\\test_onepass\\topk_3_6__gap_0p25__keep6_0p99\\20260108_143813\\predictions_test_clean.jsonl",
+    "mean_metrics_json": "C:\\Users\\ronif\\Desktop\\try NLP\\trained_models\\one_pass\\test_onepass\\topk_3_6__gap_0p25__keep6_0p99\\20260108_143813\\mean_metrics_test.json"
+  },
+  "num_items": 525
+}

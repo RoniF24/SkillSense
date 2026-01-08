@@ -1,0 +1,28 @@
+{
+  "model_type": "one_pass",
+  "model_name": "roberta-base",
+  "seed": 42,
+  "epochs": 3,
+  "lr": 2e-05,
+  "train_bs": 8,
+  "eval_bs": 16,
+  "max_length": 256,
+  "num_skills": 136,
+  "splits_dir": "C:\\Users\\ronif\\Desktop\\try NLP\\data\\splits_v1",
+  "run_name": "train_seed42_epoch3_cw",
+  "output_dir": "C:\\Users\\ronif\\Desktop\\try NLP\\trained_models\\one_pass\\train_seed42_epoch3_cw",
+  "use_class_weights": true,
+  "train_label_counts": {
+    "none_0": 322166,
+    "implicit_1": 8211,
+    "explicit_2": 2823,
+    "total": 333200
+  },
+  "class_weights": [
+    0.019435368942935183,
+    0.7625642517196025,
+    2.2180003793374623
+  ],
+  "cuda_available": true,
+  "device_name": "NVIDIA GeForce RTX 5070 Laptop GPU"
+}

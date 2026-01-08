@@ -1,0 +1,14 @@
+{
+    "epoch": 3.0,
+    "eval_acc_3class": 0.907016806722689,
+    "eval_any_f1": 0.4190543153454034,
+    "eval_any_precision": 0.26547884187082404,
+    "eval_any_recall": 0.994161801501251,
+    "eval_loss": 0.249578595161438,
+    "eval_runtime": 0.7649,
+    "eval_samples_per_second": 686.33,
+    "eval_steps_per_second": 43.141,
+    "eval_type_acc_on_gt_present": 0.982068390325271,
+    "eval_type_f1_explicit_positive": 0.9744013212221304,
+    "eval_type_support": 2398.0
+}

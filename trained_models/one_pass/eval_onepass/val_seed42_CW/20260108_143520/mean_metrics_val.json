@@ -1,0 +1,9 @@
+{
+  "precision_at_k": 0.6689523809523844,
+  "recall_at_k": 0.7540317460317478,
+  "f1_at_k": 0.7010206830206864,
+  "type_acc_on_intersection": 0.9902857142857144,
+  "type_support_on_intersection": 3.3447619047619046,
+  "k": 5.0,
+  "gt_nonzero": 4.567619047619048
+}

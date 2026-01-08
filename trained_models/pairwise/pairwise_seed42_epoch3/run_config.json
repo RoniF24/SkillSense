@@ -1,0 +1,26 @@
+{
+  "model_name": "roberta-base",
+  "seed": 42,
+  "epochs": 3,
+  "lr": 2e-05,
+  "train_bs": 8,
+  "eval_bs": 16,
+  "max_length": 256,
+  "neg_per_pos": 3,
+  "min_negs": 5,
+  "eval_full": false,
+  "use_class_weights": false,
+  "train_label_counts": {
+    "none_0": 33102,
+    "implicit_1": 8211,
+    "explicit_2": 2823,
+    "total": 44136
+  },
+  "class_weights": [
+    0.17902704327383975,
+    0.7217334291134629,
+    2.099239527612697
+  ],
+  "cuda_available": true,
+  "device_name": "NVIDIA GeForce RTX 5070 Laptop GPU"
+}
